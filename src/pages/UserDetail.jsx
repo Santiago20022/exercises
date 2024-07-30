@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import User from "./User"
-import { users } from "./mocks/users";
+import User from "../User"
+import { users } from "../mocks/users";
 
 function UserDetails(){
   const [user, setUser] = useState();
