@@ -6,9 +6,9 @@ function Header() {
       <img src={LogoInstagram} alt="login" className="h-20 " />
       <span className="flex gap-4 font-extrabold ">
         <button className="bg-blue-500 text-white font-bold py-1 px-4 rounded-lg">
-          Iniciar sesión
+          sign in
         </button>
-        <button className="text-blue-400 font-bold">Registrarte</button>
+        <button className="text-blue-400 font-bold">sign up</button>
       </span>
     </nav>
   );

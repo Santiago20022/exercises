@@ -1,6 +1,9 @@
+
+import { useEffect, useState } from "react";
 import LogoInstagram from "./assets/logo-instagram.png";
 
-function Login_s(){
+function LoginForm(){
+    //useEffect
     return(
             <div className="flex flex-col items-center justify-center flex-grow">
             <form className="border border-gray-200 bg-white shadow-md rounded flex flex-col px-8 py-6 mb-4 w-80">
@@ -10,27 +13,27 @@ function Login_s(){
             <input
                 className="p-2 my-2 border bg-slate-100 border-gray-200 rounded text-sm"
                 type="text"
-                placeholder="Telefono, usuario o correo electronico"
+                placeholder="Telephone, username or email"
             />
             <input
                 className="p-2 my-2 border bg-slate-100 border-gray-200 rounded text-sm"
                 type="password"
-                placeholder="Contraseña"
+                placeholder="Password"
             />
             <button
                 className="bg-blue-400 text-white font-bold py-2 px-4 rounded-xl mt-4"
                 type="submit"
             >
-                Iniciar sesión
+                Sign in
             </button>
             <button className="text-sm text-center mt-4">
-                ¿Olvidaste tu contraseña?{" "}
+                ¿Did you forget your password?{" "}
             </button>
             </form>
             <div className="border border-gray-200 bg-white shadow-md rounded flex flex-col px-8 py-6 w-80">
             <p className="text-sm text-center">
-                ¿No tienes una cuenta?{" "}
-                <span className="text-blue-400">Regístrate</span>
+                ¿Don't have an account?{" "}
+                <span className="text-blue-400">sign up</span>
             </p>
             </div>
             
@@ -38,4 +41,4 @@ function Login_s(){
     )
 }
 
-export default Login_s;
+export default LoginForm;

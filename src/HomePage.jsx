@@ -38,7 +38,7 @@ function HomePage() {
         <input type="text" value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
         <p>Doubled value: {doubledValue}</p>
         <p>Total: {totalValue}</p>
-        <Link to="/login">Ir a Login</Link>
+        <Link to="/login">Go to Login</Link>
       </div>
     </>
   );
