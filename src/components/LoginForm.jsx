@@ -3,6 +3,7 @@ import { useState } from "react";
 import LogoInstagram from "./assets/logo-instagram.png";
 import { users } from '../mocks/users';
 import { useNavigate } from "react-router-dom";
+import { posts } from "../mocks/posts";
 
 function LoginForm(){
     const [username, setUsername] = useState("");
@@ -30,7 +31,7 @@ function LoginForm(){
             setError("Incorrect password");
             return;
         }
-        navigate(`/users/${user.id}`);
+        navigate(`/dasboard/${posts.id}`);
 
     };
     

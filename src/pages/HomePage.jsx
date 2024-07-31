@@ -13,6 +13,7 @@ function HomePage() {
   useEffect(() => {
     setDoubledValue(inputValue * 2);
   }, [inputValue]);
+  
   useEffect(() => {
     const total =  parseInt(count) + parseInt(inputValue);
     setTotalValue(total);
