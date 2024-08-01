@@ -1,12 +1,18 @@
-import React from 'react'
+import React, { Children } from 'react'
 import Post from '../components/Post';
+import { posts } from '../mocks/posts';
 
-const Dasboard = () => {
+const Dasboard = ({Children}) => {
+
 
   return (
     <>
-      <h1>Dashboard</h1>
-      <Post  />
+      {Children}
+      {posts.map((post) => (
+        <Post 
+        post={post}
+        />
+      ))}
     </>
   );
 }

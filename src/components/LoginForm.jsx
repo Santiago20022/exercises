@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import LogoInstagram from "./assets/logo-instagram.png";
+import LogoInstagram from '../assets/logo-instagram.png'
 import { users } from '../mocks/users';
 import { useNavigate } from "react-router-dom";
 import { posts } from "../mocks/posts";

@@ -1,4 +1,4 @@
-import LogoInstagram from "./assets/logo-instagram.png";
+import LogoInstagram from "../assets/logo-instagram.png";
 
 function Header() {
   return (

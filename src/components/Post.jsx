@@ -1,17 +1,22 @@
 import React from 'react'
-import { posts } from '../mocks/posts'
+import { users } from '../mocks/users'
 
-function Post () {
+
+function Post ({post}) {
+
+  const user = users.find((user) => user.id === post.userId )
+  
+  // un usuario que esta en un userid
+
   return (
-    <>
-      {posts.map((post) => (
-      <div key={post.id}>
-        <img src={post.images} alt={post.description} />
-          <p>{post.description}</p>
-        <p>Likes: {post.likes}</p>
+    <div className='flex flex-grow items-center min-h-screen w-full justify-center bg-gray-300 pt-1 mt-4'>
+      <div className='flex flex-col'>
+      <p className='border-2 gap-x-1 text-left'>{user.username}</p>
+      <img className='gap-y-1 gap-x-1' src={post.image} alt={post.description} />
+        <p className='border-2'>{post.description}</p>
+        <p className='border-2'>Likes: {post.likes}</p>
+      </div> 
       </div>
-      ))}
-    </>
   )
 }
 

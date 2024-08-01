@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import User from "../User"
+import User from "../components/User"
 import { users } from "../mocks/users";
 
 function UserDetails(){
