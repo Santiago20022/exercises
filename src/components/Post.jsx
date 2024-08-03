@@ -10,12 +10,12 @@ function Post ({post}) {
 
   return (
     <div className="">
-      <div className="text-white w-[470px] h-[620px] ">
+      <div className="text-white w-[370px] h-[600px]  lg:w-[470px] lg:h-[620px]">
         <nav className="flex w-full py-2 text-black dark:text-white">
           <img
             src={post.image}
             alt="Santiago"
-            className="w-11 h-11 rounded-full cursor-pointernpm "
+            className="w-11 h-11 rounded-full cursor-pointer object-cover "
           />
           <div className="ml-4">
             <p className="font-bold">{user.username}</p>
@@ -134,13 +134,13 @@ function Post ({post}) {
           </div>
 
           <div>
-            <p class="text-sm ">{post.likes}</p>
+            <p class="text-sm ">{post.likes} Likes</p>
             <p>View all {post.description} comments</p>
           </div>
         </footer>
       </div>
     </div>
-  )
+  );
 }
 
 export default Post
