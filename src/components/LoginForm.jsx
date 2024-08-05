@@ -1,13 +1,16 @@
 
-import { useState } from "react";
+import { useState, useContext} from "react";
 import LogoInstagram from '../assets/logo-instagram.png'
 import { users } from '../mocks/users';
 import { useNavigate } from "react-router-dom";
-import { posts } from "../mocks/posts";
+import { UserContext } from "../context/UserContext";
 
 function LoginForm(){
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const {
+        setUserId,
+      } = useContext(UserContext);
     const [error, setError] = useState("");
     const navigate = useNavigate();
     const usernameChange = (e) => {
@@ -31,7 +34,9 @@ function LoginForm(){
             setError("Incorrect password");
             return;
         }
-        navigate(`/dasboard/${posts.id}`);
+        setUserId(user.id);
+        localStorage.setItem("userId", user.id);
+        navigate(`/dasboard`);
 
     };
     

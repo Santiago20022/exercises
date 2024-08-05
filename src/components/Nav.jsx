@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useMemo } from "react";
 import "../index.css";
 import { users } from "../mocks/users";
 import Instagram from "../assets/logo-instagram.js";
@@ -11,6 +11,7 @@ import Notifications from "../icons/Notifications.js";
 import Create from "../icons/Create.js";
 import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { UserContext } from "../context/UserContext";
 
 const navigation = [
   { name: "Home", icon: Home },
@@ -26,7 +27,12 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-function Aside() {
+function Nav() {
+  const { userId } = useContext(UserContext);
+
+  const userName = useMemo(() => (
+    users.find((user) => user.id === userId).name
+  ), [userId]);
   return (
     <>
       <Disclosure as="nav" className="bg-white dark:bg-black">
@@ -49,7 +55,7 @@ function Aside() {
               </Disclosure.Button>
             </div>
             <div className="absolute inset-y-0 right-0 flex items-center pr-2">
-              <span className="text-white font-bold">{users[2].name}</span>
+              <span className="text-white font-bold">{userName}</span>
             </div>
           </div>
         </div>
@@ -79,4 +85,4 @@ function Aside() {
   );
 }
 
-export default Aside;
+export default Nav;

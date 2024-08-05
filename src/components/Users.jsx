@@ -1,12 +1,11 @@
 
-import { users } from "./mocks/users";
+import { users } from "../mocks/users";
 import { User } from "./User"
 
 
 function Users({
   children
-}) 
-{
+}) {
   return (
     <>
       {children}
