@@ -20,11 +20,13 @@ export function LocalStorageProvider({ children }) {
     localStorage.removeItem(key);
   };
 
-  const value = {
-    setLocalStorageValue,
-    getLocalStorageValue,
-    deleteLocalStorageValue
-  };
+  const value = useMemo(() => (
+    {
+      setLocalStorageValue,
+      getLocalStorageValue,
+      deleteLocalStorageValue
+    }
+  ), []);
 
   return (
     <LocalStorageContext.Provider value={value}>
