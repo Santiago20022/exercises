@@ -4,21 +4,21 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Header from './components/Header';
-import UserProvider from './context/UserContext';
 import { BrowserRouter } from 'react-router-dom';
 import { LocalStorageProvider } from './context/LocalStorageContext';
+import { UserProvider } from './context/UserContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <UserProvider>
-      <LocalStorageProvider>
+    <LocalStorageProvider>
       <Header />
       <BrowserRouter>
         <App />
       </BrowserRouter>
       </LocalStorageProvider>
-    </UserProvider>
+    </UserProvider>    
   </React.StrictMode>
 );
 

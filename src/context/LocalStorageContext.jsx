@@ -1,12 +1,13 @@
-import React, { createContext, useContext } from "react";
+import React, { createContext, useContext, useMemo } from "react";
 
-const LocalStorageContext = createContext({
+export const LocalStorageContext = createContext({
   setLocalStorageValue: () => {},
   getLocalStorageValue: () => {},
   deleteLocalStorageValue: () => {},
 });
 
 export function LocalStorageProvider({ children }) {
+  
   const setLocalStorageValue = (key, value) => {
     localStorage.setItem(key, value);
     return value;
@@ -36,4 +37,3 @@ export function LocalStorageProvider({ children }) {
 }
 
 
-export const useLocalStorage = () => useContext(LocalStorageContext)

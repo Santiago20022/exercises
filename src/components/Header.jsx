@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import Nav from "./Nav";
 import { UserContext } from "../context/UserContext";
 
+
 function Header() {
   const { userId } = useContext(UserContext);
   console.log('userId-->', userId);

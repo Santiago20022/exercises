@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { users } from '../mocks/users'
 
 
@@ -38,7 +39,7 @@ function Post ({post}) {
           </span>
         </nav>
         <img
-          src={post.image}
+          src="https://via.assets.so/album.png?id=1&q=95&w=360&h=360&fit=fill"
           alt="Post"
           className="w-[470px] h-[470px] object-cover"
         />

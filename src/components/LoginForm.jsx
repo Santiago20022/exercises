@@ -1,25 +1,40 @@
-
-import { useState, useContext} from "react";
+import { useState, useContext, useEffect} from "react";
 import LogoInstagram from '../assets/logo-instagram.png'
-import { users } from '../mocks/users';
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
+import { LocalStorageContext } from "../context/LocalStorageContext";
 
 function LoginForm(){
     const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("");
+    const [users, setUsers] = useState(null);
+    const [error, setError] = useState("");
+
+    useEffect ( () => {
+        fetch('https://jsonplaceholder.typicode.com/users')
+        .then(response => response.json())
+        .then(users => setUsers(users))
+    }, [])
+
+    const {
+        setLocalStorageValue,
+    } = useContext(LocalStorageContext)
+    
+
     const {
         setUserId,
+        setUser,
       } = useContext(UserContext);
-    const [error, setError] = useState("");
+   
     const navigate = useNavigate();
-    const usernameChange = (e) => {
-        setUsername(e.target.value);
+
+    const emailChange = (e) => {
+        setEmail(e.target.value);
         setError('')
     };
 
-    const passwordChange = (e) => {
-        setPassword(e.target.value);
+    const userNameChange = (e) => {
+        setUsername(e.target.value);
         setError('')
     };
 
@@ -30,14 +45,19 @@ function LoginForm(){
             return;
         }
 
-        if(user.password !== password){
+        if(user.email !== email){
             setError("Incorrect password");
             return;
         }
+        
         setUserId(user.id);
-        localStorage.setItem("userId", user.id);
+        setUser(user);
+        setLocalStorageValue("userId", user.id);
+        setLocalStorageValue("user", JSON.stringify(user));
         navigate(`/dasboard`);
 
+
+        console.log(email)
     };
     
     //useEffect
@@ -52,16 +72,16 @@ function LoginForm(){
                 <input
                     className="p-2 my-2 border bg-slate-100 border-gray-200 rounded text-sm"
                     type="text"
-                    placeholder="Telephone, username or email"
-                    value={username}
-                    onChange={usernameChange}
+                    placeholder="Telephone, or email"
+                    value={email}
+                    onChange={emailChange}
                 />
                 <input
                     className="p-2 my-2 border bg-slate-100 border-gray-200 rounded text-sm"
                     type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={passwordChange}
+                    placeholder="Username"
+                    value={username}
+                    onChange={userNameChange}
                 />
                 <button
                     className="bg-blue-400 text-white font-bold py-2 px-4 rounded-xl mt-4"

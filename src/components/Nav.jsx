@@ -11,7 +11,7 @@ import Notifications from "../icons/Notifications.js";
 import Create from "../icons/Create.js";
 import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { UserContext } from "../context/UserContext";
+import { UserContext } from "../context/UserContext.jsx";
 
 const navigation = [
   { name: "Home", icon: Home },
@@ -28,11 +28,9 @@ function classNames(...classes) {
 }
 
 function Nav() {
-  const { userId } = useContext(UserContext);
+  const { user } = useContext(UserContext);
 
-  const userName = useMemo(() => (
-    users.find((user) => user.id === userId).name
-  ), [userId]);
+  
   return (
     <>
       <Disclosure as="nav" className="bg-white dark:bg-black">
@@ -55,7 +53,7 @@ function Nav() {
               </Disclosure.Button>
             </div>
             <div className="absolute inset-y-0 right-0 flex items-center pr-2">
-              <span className="text-white font-bold">{userName}</span>
+              <span className="text-white font-bold">{user?.name}</span>
             </div>
           </div>
         </div>
